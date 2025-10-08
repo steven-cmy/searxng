@@ -277,7 +277,7 @@ container.push() {
         podman image list
 
         # Remote registries
-        release_registries=("ghcr.io" "docker.io")
+        release_registries=("docker.io")
 
         # Push manifests
         for registry in "${release_registries[@]}"; do
@@ -286,7 +286,7 @@ container.push() {
 
                 podman manifest push \
                     "localhost/$CONTAINER_IMAGE_ORGANIZATION/$CONTAINER_IMAGE_NAME:$tag" \
-                    "docker://$registry/$CONTAINER_IMAGE_ORGANIZATION/$CONTAINER_IMAGE_NAME:$tag"
+                    "docker://$registry/stevencmy/$CONTAINER_IMAGE_NAME:$tag"
             done
         done
     )
